@@ -1,0 +1,14 @@
+# Private documents - DO NOT COMMIT
+Godaddy podaci Blaž.docx
+"Godaddy podaci Blaž.docx"
+*.docx
+K&R protfolio.pdf
+*.pdf
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+node_modules/
+.env
