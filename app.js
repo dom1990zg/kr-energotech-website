@@ -76,4 +76,9 @@ async function handleSubmit(e){
   if(el) el.textContent=e;
   if(lnk) lnk.href='mailto:'+e;
   if(fel){fel.href='mailto:'+e; fel.textContent=e;}
-})();
+  // Also find by text content
+  document.querySelectorAll('a[href*="kr-exp"], a[href*="email-protection"]').forEach(function(a){
+    if(a.textContent.indexOf('@')===-1 && a.textContent.indexOf('email')!==-1){
+      a.href='mailto:'+e; a.textContent=e;
+    }
+  });
