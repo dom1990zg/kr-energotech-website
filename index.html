@@ -463,9 +463,9 @@
       <h2 class="section-title" style="margin-bottom:24px;">CONTACT <span style="color:var(--gold)" data-i18n="contact_title">US</span></h2>
       <p data-i18n="contact_desc">Whether you need supervision for a new installation, technical consulting, or are looking for a reliable partner for your next HV project, our team is ready to respond quickly and professionally.</p>
       <div class="contact-details">
-        <a href="/cdn-cgi/l/email-protection#b9d0d7dfd6f9d2cb94dcc1c997dad6d4" class="contact-item">
+        <a id="contactEmailLink" href="#" class="contact-item">
           <div class="contact-item-icon">✉️</div>
-          <div class="contact-item-text"><span data-i18n="contact_email_label">Email</span><strong><span class="__cf_email__" data-cfemail="167f787079567d643b736e663875797b">[email&#160;protected]</span></strong></div>
+          <div class="contact-item-text"><span data-i18n="contact_email_label">Email</span><strong id="contactEmail"></strong></div>
         </a>
         <a href="tel:+385919212449" class="contact-item">
           <div class="contact-item-icon">📞</div>
@@ -541,7 +541,7 @@
     <div class="footer-col">
       <h5 data-i18n="footer_contact">Contact</h5>
       <ul>
-        <li><a href="/cdn-cgi/l/email-protection#0b62656d644b6079266e737b25686466"><span class="__cf_email__" data-cfemail="caa3a4aca58aa1b8e7afb2bae4a9a5a7">[email&#160;protected]</span></a></li>
+        <li><a id="footerEmail" href="#">info@kr-exp.com</a></li>
         <li><a href="tel:+385919212449">+385 91 921 2449</a></li>
         <li><a href="#contact" data-i18n="footer_enquiry">Send Enquiry</a></li>
       </ul>
@@ -611,4 +611,28 @@ async function handleSubmit(e){
       succ.textContent=t.form_success;
       succ.className='form-status success';
       succ.style.display='block';    } else {
-      btn.disable
+      btn.disabled=false; btn.textContent=t.form_submit;
+      err.textContent=t.form_error;
+      err.className='form-status error';
+      err.style.display='block';
+    }
+  } catch(ex){
+    btn.disabled=false; btn.textContent=t.form_submit;
+    err.textContent=t.form_error;
+    err.className='form-status error';
+    err.style.display='block';
+  }
+}
+// Email - defeats Cloudflare obfuscation
+(function(){
+  var e='info'+'@'+'kr-exp.com';
+  var el=document.getElementById('contactEmail');
+  var lnk=document.getElementById('contactEmailLink');
+  var fel=document.getElementById('footerEmail');
+  if(el) el.textContent=e;
+  if(lnk) lnk.href='mailto:'+e;
+  if(fel){fel.href='mailto:'+e; fel.textContent=e;}
+})();
+</script>
+</body>
+</html>
