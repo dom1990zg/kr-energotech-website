@@ -230,7 +230,7 @@
 
     /* ANIMATIONS */
     .fade-in{opacity:1;transform:none}
-    .
+  
 
     /* RESPONSIVE */
     @media(max-width:1024px){.values-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
@@ -621,3 +621,19 @@ async function handleSubmit(e){
       succ.textContent=t.form_success;
       succ.className='form-status success';
       succ.style.display='block';
+    } else {
+      btn.disabled=false; btn.textContent=t.form_submit;
+      err.textContent=t.form_error;
+      err.className='form-status error';
+      err.style.display='block';
+    }
+  } catch(ex){
+    btn.disabled=false; btn.textContent=t.form_submit;
+    err.textContent=t.form_error;
+    err.className='form-status error';
+    err.style.display='block';
+  }
+}
+</script>
+</body>
+</html>
