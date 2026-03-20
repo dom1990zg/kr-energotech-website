@@ -3,7 +3,7 @@ const heroTitles={
   en:'POWERING<br><span class="gold">PROGRESS</span><br>WITH PRECISION',
   hr:'POKRE&Cacute;EMO<br><span class="gold">NAPREDAK</span><br>S PRECIZNOS&Cacute;U',
   de:'ENERGIE<br><span class="gold">MIT</span><br>PRAZISION',
-  ar:'<span class="gold">نُحرِّك</span><br>التقدم<br>بدقة واحترافية'
+  ar:'<span class="gold">\u0646\u064F\u062D\u0631\u0651\u0643</span><br>\u0627\u0644\u062A\u0642\u062F\u0645<br>\u0628\u062F\u0642\u0629 \u0648\u0627\u062D\u062A\u0631\u0627\u0641\u064A\u0629'
 };
 let lang='en';
 function setLang(l){
@@ -31,6 +31,7 @@ const obs=new IntersectionObserver((entries)=>{
   entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80)});
 },{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+var FURL='https'+'://formspree'+'.io/f/mzdjweov';
 async function handleSubmit(e){
   e.preventDefault();
   const form=e.target;
@@ -41,12 +42,13 @@ async function handleSubmit(e){
   succ.style.display='none'; err.style.display='none';
   btn.textContent='...'; btn.disabled=true;
   try{
-    const res=await fetch('https:
+    const res=await fetch(FURL,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
     if(res.ok){
       form.style.display='none';
       succ.textContent=t.form_success;
       succ.className='form-status success';
-      succ.style.display='block';    } else {
+      succ.style.display='block';
+    } else {
       btn.disabled=false; btn.textContent=t.form_submit;
       err.textContent=t.form_error;
       err.className='form-status error';
