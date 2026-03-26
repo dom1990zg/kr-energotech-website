@@ -68,12 +68,10 @@ window.handleSubmit=async function handleSubmit(e){
 }
 (function(){
   var e='info'+'@'+'kr-exp.com';
-  var el=document.getElementById('cemail');
-  var lnk=document.getElementById('cemaillink');
-  var fel=document.getElementById('femail');
-  if(el) el.textContent=e;
-  if(lnk) lnk.href='mailto:'+e;
-  if(fel){fel.href='mailto:'+e; fel.textContent=e;}
+  // Use multiple selectors to find email elements regardless of Cloudflare ID changes
+  document.querySelectorAll('.eaddr').forEach(function(el){el.textContent=e;});
+  document.querySelectorAll('.cemaillink').forEach(function(el){el.href='mailto:'+e;});
+  document.querySelectorAll('.femail').forEach(function(el){el.href='mailto:'+e; el.textContent=e;});
 })();
 
 var galleryImages=[
