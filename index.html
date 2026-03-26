@@ -64,7 +64,7 @@
 
     /* HERO */
     #hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,12,16,0.97) 0%,rgba(13,27,42,0.88) 50%,rgba(10,12,16,0.78) 100%),url('https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?w=1920&q=80') center/cover no-repeat}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,12,16,0.97) 0%,rgba(13,27,42,0.88) 50%,rgba(10,12,16,0.78) 100%),url('https://res.cloudinary.com/dw0o1zypk/image/upload/w_1920,q_auto,f_auto/DJI_20250610163516_0022_D_a9hmtd.jpg') center/cover no-repeat}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,162,39,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,162,39,0.04) 1px,transparent 1px);background-size:60px 60px}
     .hero-bolt{position:absolute;right:6%;top:50%;transform:translateY(-50%);opacity:0.07}
     .hero-bolt svg{width:360px;height:360px;fill:var(--gold)}
@@ -249,6 +249,29 @@
       section{padding:64px 5vw}.lang-switcher{display:none}
     }
     @media(max-width:480px){.values-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column}.btn-primary,.btn-secondary{text-align:center}}
+
+    /* GALLERY */
+    #gallery{background:var(--dark-2)}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:48px}
+    .gallery-item{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s,filter 0.4s;filter:brightness(0.9)}
+    .gallery-item:hover img{transform:scale(1.06);filter:brightness(1.1)}
+    .gallery-item-overlay{position:absolute;inset:0;background:rgba(201,162,39,0);display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+    .gallery-item:hover .gallery-item-overlay{background:rgba(201,162,39,0.15)}
+    .gallery-zoom{opacity:0;color:white;font-size:28px;transition:opacity 0.3s}
+    .gallery-item:hover .gallery-zoom{opacity:1}
+    /* LIGHTBOX */
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:2000;align-items:center;justify-content:center}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:2px}
+    .lightbox-close{position:absolute;top:24px;right:32px;color:white;font-size:40px;cursor:pointer;line-height:1;opacity:0.8}
+    .lightbox-close:hover{opacity:1;color:var(--gold)}
+    .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);color:white;font-size:48px;cursor:pointer;padding:16px;opacity:0.7;user-select:none}
+    .lightbox-prev{left:16px}.lightbox-next{right:16px}
+    .lightbox-prev:hover,.lightbox-next:hover{opacity:1;color:var(--gold)}
+    @media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.gallery-grid{grid-template-columns:1fr}}
+
   </style>
 </head>
 <body>
@@ -262,6 +285,7 @@
     <li><a href="#about" data-i18n="nav_about">About</a></li>
     <li><a href="#services" data-i18n="nav_services">Services</a></li>
     <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#global" data-i18n="nav_global">Global</a></li>
     <li><a href="#contact" class="nav-cta" data-i18n="nav_contact">Contact Us</a></li>
   </ul>
@@ -330,7 +354,7 @@
       <div class="about-corner-tr"></div>
       <div class="about-corner-bl"></div>
       <div class="about-img-wrap">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="K&R Energotech Experts power transformer installation site" loading="lazy"/>
+        <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250612091010_0068_D_o8yodc.jpg" alt="K&R Energotech Experts power transformer installation site" loading="lazy"/>
         <div class="about-img-overlay"></div>
         <div class="about-badge">Est. 2013</div>
       </div>
@@ -369,6 +393,69 @@
     <div class="service-card fade-in"><div class="service-header-row"><div class="service-num">06</div><div class="service-icon">🏭</div></div><h3 data-i18n="s6_title">HV Equipment Installation</h3><p data-i18n="s6_text">Installation of all HV equipment including power, distribution, industry, oil and gas. Control cabinet manufacturing, switchgear installation, and substation construction. Covering voltages from distribution level up to 400 kV transmission class.</p><div class="service-arrow">→</div></div>
   </div>
 </section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="fade-in" style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">Our Work</div>
+    <h2 class="section-title">PROJECT <span style="color:var(--gold)">GALLERY</span></h2>
+    <p style="color:var(--text-muted);max-width:520px;margin:16px auto 0;font-size:15px;line-height:1.7;">Real photographs from our projects across Europe, Middle East, Asia and Africa.</p>
+  </div>
+  <div class="gallery-grid fade-in">
+    <div class="gallery-item" onclick="openLightbox(0)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610152954_0005_D_shbojx.jpg" alt="Transformer installation supervision" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(1)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_3606_cb_nnk5r7.jpg" alt="On-site project management" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610153738_0010_D_agyvpd.jpg" alt="Aerial view of substation" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(3)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_0316_saz9gw.jpg" alt="HV equipment installation" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(4)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_0161_n0gqox.jpg" alt="Commissioning services" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(5)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250613115142_0111_D_iyxuho.jpg" alt="Offshore operations" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(6)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250612091010_0068_D_o8yodc.jpg" alt="Power transformer site" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(7)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610171911_0034_D_poifgu.jpg" alt="Site management" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(8)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610153508_0008_D_u0atjc.jpg" alt="Transformer commissioning" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(9)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_3274_wdhqja.jpg" alt="Technical consulting" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(10)">
+      <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_3606_fordwc.jpg" alt="Project excellence" loading="lazy"/>
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+  <span class="lightbox-prev" onclick="changeLightbox(-1)">&#8249;</span>
+  <img id="lightboxImg" src="" alt=""/>
+  <span class="lightbox-next" onclick="changeLightbox(1)">&#8250;</span>
+</div>
 
 <!-- VISION MISSION -->
 <section id="vision">
