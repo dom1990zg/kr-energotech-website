@@ -647,7 +647,7 @@
     <div class="footer-col">
       <h5 data-i18n="footer_contact">Contact</h5>
       <ul>
-        <li><a id="footerEmail" href="#"><span class="__cf_email__" data-cfemail="85ecebe3eac5eef7a8e0fdf5abe6eae8">[email&#160;protected]</span></a></li>
+        <li><a id="footerEmail" href="#"></a></li>
         <li><a href="tel:+385919212449">+385 91 921 2449</a></li>
         <li><a href="#contact" data-i18n="footer_enquiry">Send Enquiry</a></li>
       </ul>
@@ -756,3 +756,11 @@ window.openLightbox=function openLightbox(i){currentImg=i;document.getElementByI
 window.closeLightbox=function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
 window.closeLightboxOutside=function closeLightboxOutside(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
 window.changeLightbox=function changeLightbox(dir){currentImg=(currentImg+dir+galleryImages.length)%galleryImages.length;document.getElementById('lightboxImg').src=galleryImages[currentImg];}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')window.closeLightbox();
+  if(e.key==='ArrowLeft')window.changeLightbox(-1);
+  if(e.key==='ArrowRight')window.changeLightbox(1);
+});
+</script>
+</body>
+</html>
