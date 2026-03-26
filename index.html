@@ -65,7 +65,7 @@
     /* HERO */
     #hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,12,16,0.97) 0%,rgba(13,27,42,0.88) 50%,rgba(10,12,16,0.78) 100%),url('https://res.cloudinary.com/dw0o1zypk/image/upload/w_1920,q_auto,f_auto/DJI_20250610163516_0022_D_a9hmtd.jpg') center/cover no-repeat}
-    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,162,39,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,162,39,0.04) 1px,transparent 1px);background-size:60px 60px}
+    .hero-grid{display:none}
     .hero-bolt{position:absolute;right:6%;top:50%;transform:translateY(-50%);opacity:0.07}
     .hero-bolt svg{width:360px;height:360px;fill:var(--gold)}
     .hero-content{position:relative;z-index:2;padding:0 5vw;max-width:920px;animation:fadeUp 1s ease both}
@@ -299,28 +299,28 @@
   </ul>
   <div class="nav-right">
     <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('hr')">HR</button>
-      <button class="lang-btn" onclick="setLang('de')">DE</button>
-      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn active" onclick="window.setLang('en')">EN</button>
+      <button class="lang-btn" onclick="window.setLang('hr')">HR</button>
+      <button class="lang-btn" onclick="window.setLang('de')">DE</button>
+      <button class="lang-btn" onclick="window.setLang('ar')">AR</button>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger" onclick="window.toggleMenu()">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="toggleMenu()" data-i18n="nav_about">About</a>
-  <a href="#services" onclick="toggleMenu()" data-i18n="nav_services">Services</a>
-  <a href="#projects" onclick="toggleMenu()" data-i18n="nav_projects">Projects</a>
-  <a href="#global" onclick="toggleMenu()" data-i18n="nav_global">Global Reach</a>
-  <a href="#contact" onclick="toggleMenu()" data-i18n="nav_contact">Contact</a>
+  <a href="#about" onclick="window.toggleMenu()" data-i18n="nav_about">About</a>
+  <a href="#services" onclick="window.toggleMenu()" data-i18n="nav_services">Services</a>
+  <a href="#projects" onclick="window.toggleMenu()" data-i18n="nav_projects">Projects</a>
+  <a href="#global" onclick="window.toggleMenu()" data-i18n="nav_global">Global Reach</a>
+  <a href="#contact" onclick="window.toggleMenu()" data-i18n="nav_contact">Contact</a>
   <div class="mobile-lang">
-    <button class="lang-btn active" onclick="setLang('en');toggleMenu()">EN</button>
-    <button class="lang-btn" onclick="setLang('hr');toggleMenu()">HR</button>
-    <button class="lang-btn" onclick="setLang('de');toggleMenu()">DE</button>
-    <button class="lang-btn" onclick="setLang('ar');toggleMenu()">AR</button>
+    <button class="lang-btn active" onclick="window.setLang('en');window.toggleMenu()">EN</button>
+    <button class="lang-btn" onclick="window.setLang('hr');window.toggleMenu()">HR</button>
+    <button class="lang-btn" onclick="window.setLang('de');window.toggleMenu()">DE</button>
+    <button class="lang-btn" onclick="window.setLang('ar');window.toggleMenu()">AR</button>
   </div>
 </div>
 
@@ -410,51 +410,51 @@
     <p style="color:var(--text-muted);max-width:520px;margin:16px auto 0;font-size:15px;line-height:1.7;">Real photographs from our projects across Europe, Middle East, Asia and Africa.</p>
   </div>
   <div class="gallery-grid fade-in">
-    <div class="gallery-item" onclick="openLightbox(0)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(0)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610152954_0005_D_shbojx.jpg" alt="Transformer installation supervision" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(1)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(1)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_3606_cb_nnk5r7.jpg" alt="On-site project management" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(2)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(2)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610153738_0010_D_agyvpd.jpg" alt="Aerial view of substation" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(3)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(3)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_0316_saz9gw.jpg" alt="HV equipment installation" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(4)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(4)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_0161_n0gqox.jpg" alt="Commissioning services" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(5)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(5)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250613115142_0111_D_iyxuho.jpg" alt="Offshore operations" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(6)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(6)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250612091010_0068_D_o8yodc.jpg" alt="Power transformer site" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(7)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(7)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610171911_0034_D_poifgu.jpg" alt="Site management" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(8)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(8)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/DJI_20250610153508_0008_D_u0atjc.jpg" alt="Transformer commissioning" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(9)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(9)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_3274_wdhqja.jpg" alt="Technical consulting" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(10)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(10)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_3606_fordwc.jpg" alt="Project excellence" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(11)">
+    <div class="gallery-item" onclick="if(window.openLightbox)window.openLightbox(11)">
       <img src="https://res.cloudinary.com/dw0o1zypk/image/upload/w_800,q_auto,f_auto/IMG_3283_hkhnsu.jpg" alt="Project site work" loading="lazy"/>
       <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
     </div>
@@ -462,11 +462,11 @@
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
-  <span class="lightbox-close" onclick="closeLightbox()">×</span>
-  <span class="lightbox-prev" onclick="changeLightbox(-1)">&#8249;</span>
+<div class="lightbox" id="lightbox" onclick="window.closeLightboxOutside(event)">
+  <span class="lightbox-close" onclick="window.closeLightbox()">×</span>
+  <span class="lightbox-prev" onclick="window.changeLightbox(-1)">&#8249;</span>
   <img id="lightboxImg" src="" alt=""/>
-  <span class="lightbox-next" onclick="changeLightbox(1)">&#8250;</span>
+  <span class="lightbox-next" onclick="window.changeLightbox(1)">&#8250;</span>
 </div>
 
 <!-- VISION MISSION -->
@@ -585,7 +585,7 @@
       </div>
     </div>
     <div class="fade-in">
-      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <form class="contact-form" id="contactForm" onsubmit="window.handleSubmit(event)">
         <div class="form-row">
           <div class="form-group"><label data-i18n="form_name">Full Name</label><input type="text" name="name" placeholder="John Smith" required/></div>
           <div class="form-group"><label data-i18n="form_company">Company</label><input type="text" name="company" placeholder="Your Company"/></div>
@@ -668,7 +668,7 @@ const heroTitles={
   ar:'<span class="gold">\u0646\u064f\u062d\u0631\u0651\u0643</span><br>\u0627\u0644\u062a\u0642\u062f\u0645<br>\u0628\u062f\u0642\u0629'
 };
 let lang='en';
-function setLang(l){
+window.setLang=function setLang(l){
   lang=l;
   const t=T[l];
   const rtl=l==='ar';
@@ -688,13 +688,13 @@ function setLang(l){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
 }
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
-function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+window.toggleMenu=function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
 const obs=new IntersectionObserver((entries)=>{
   entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});
 },{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 var FURL='https'+'://formspree'+'.io/f/mzdjweov';
-async function handleSubmit(e){
+window.handleSubmit=async function handleSubmit(e){
   e.preventDefault();
   const form=e.target;
   const btn=document.getElementById('submitBtn');
@@ -752,7 +752,7 @@ var galleryImages=[
   'https://res.cloudinary.com/dw0o1zypk/image/upload/w_1600,q_auto,f_auto/IMG_3283_hkhnsu.jpg'
 ];
 var currentImg=0;
-function openLightbox(i){currentImg=i;document.getElementById('lightboxImg').src=galleryImages[i];document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-function closeLightboxOutside(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
-function changeLightbox(dir){currentImg=(currentImg+dir+galleryImages.length)%galleryImages.length;document.getElementById('lightboxImg').src=galleryImages[currentImg];}
+window.openLightbox=function openLightbox(i){currentImg=i;document.getElementById('lightboxImg').src=galleryImages[i];document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+window.closeLightbox=function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+window.closeLightboxOutside=function closeLightboxOutside(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
+window.changeLightbox=function changeLightbox(dir){currentImg=(currentImg+dir+galleryImages.length)%galleryImages.length;document.getElementById('lightboxImg').src=galleryImages[currentImg];}
