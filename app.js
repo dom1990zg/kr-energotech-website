@@ -73,6 +73,11 @@ window.handleSubmit=function handleSubmit(ev){
   document.querySelectorAll('.femail').forEach(function(el){el.href='mailto:'+e; el.textContent=e;});
 })();
 
+document.addEventListener('DOMContentLoaded',function(){
+  var form=document.getElementById('contactForm');
+  if(form){form.addEventListener('submit',function(ev){window.handleSubmit(ev);});}
+});
+
 var galleryImages=[
   'https://res.cloudinary.com/dw0o1zypk/image/upload/w_1600,q_auto,f_auto/DJI_20250610152954_0005_D_shbojx.jpg',
   'https://res.cloudinary.com/dw0o1zypk/image/upload/w_1600,q_auto,f_auto/IMG_3606_cb_nnk5r7.jpg',
