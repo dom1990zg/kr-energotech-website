@@ -4,6 +4,10 @@
       "source": "/(.*)",
       "headers": [
         {
+          "key": "Cache-Control",
+          "value": "no-transform"
+        },
+        {
           "key": "X-Robots-Tag",
           "value": "index, follow"
         }
