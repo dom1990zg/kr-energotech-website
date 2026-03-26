@@ -68,9 +68,9 @@ window.handleSubmit=async function handleSubmit(e){
 }
 (function(){
   var e='info'+'@'+'kr-exp.com';
-  var el=document.getElementById('contactEmail');
-  var lnk=document.getElementById('contactEmailLink');
-  var fel=document.getElementById('footerEmail');
+  var el=document.getElementById('cemail');
+  var lnk=document.getElementById('cemaillink');
+  var fel=document.getElementById('femail');
   if(el) el.textContent=e;
   if(lnk) lnk.href='mailto:'+e;
   if(fel){fel.href='mailto:'+e; fel.textContent=e;}
