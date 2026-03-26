@@ -176,8 +176,7 @@
     .regions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px}
     .region-card{background:var(--dark);padding:36px 24px;text-align:center;transition:background 0.3s}
     .region-card:hover{background:var(--dark-3)}
-    .region-flag{font-size:48px;margin-bottom:12px;display:block}
-    .region-globe{width:80px;height:80px;object-fit:cover;border-radius:50%;margin:0 auto 12px;display:block;border:2px solid rgba(201,162,39,0.3)}
+    .region-flag{font-size:56px;margin-bottom:16px;display:block;text-align:center}
     .region-card h4{font-family:var(--font-condensed);font-size:16px;font-weight:700;letter-spacing:1.5px;color:var(--text-primary);margin-bottom:8px}
     .region-card p{font-size:12px;color:var(--text-muted);line-height:1.5}
 
@@ -535,28 +534,12 @@
     <p style="color:var(--text-muted);max-width:520px;margin:20px auto 0;font-size:15px;line-height:1.7;" data-i18n="global_desc">Our certified engineers and technicians operate across four continents, bringing world-class HV expertise wherever it is needed.</p>
   </div>
   <div class="regions-grid">
-    <div class="region-card fade-in">
-      <img class="region-globe" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg/240px-Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg.png" alt="Europe"/>
-      <h4 data-i18n="r1_title">Europe</h4>
-      <p data-i18n="r1_text">UK, Germany, Denmark, Czech Republic, Netherlands, Scotland and more</p>
-    </div>
-    <div class="region-card fade-in">
-      <img class="region-globe" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/WesternAsia.png/240px-WesternAsia.png" alt="Middle East"/>
-      <h4 data-i18n="r2_title">Middle East</h4>
-      <p data-i18n="r2_text">UAE, Qatar, Egypt, Kurdistan, grid and industrial projects</p>
-    </div>
-    <div class="region-card fade-in">
-      <img class="region-globe" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/240px-Asia_%28orthographic_projection%29.svg.png" alt="Asia"/>
-      <h4 data-i18n="r3_title">Asia</h4>
-      <p data-i18n="r3_text">Philippines (Meralco) and expanding into Southeast Asian markets</p>
-    </div>
-    <div class="region-card fade-in">
-      <img class="region-globe" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Africa_%28orthographic_projection%29.svg/240px-Africa_%28orthographic_projection%29.svg.png" alt="Africa"/>
-      <h4 data-i18n="r4_title">Africa</h4>
-      <p data-i18n="r4_text">Egypt, and substation services across Sub-Saharan Africa</p>
-    </div>
+    <div class="region-card fade-in"><span class="region-flag">🌍</span><h4 data-i18n="r1_title">Europe</h4><p data-i18n="r1_text">UK, Germany, Denmark, Czech Republic, Netherlands, Scotland and more</p></div>
+    <div class="region-card fade-in"><span class="region-flag">🌍</span><h4 data-i18n="r2_title">Middle East</h4><p data-i18n="r2_text">UAE, Qatar, Egypt, Kurdistan, grid and industrial projects</p></div>
+    <div class="region-card fade-in"><span class="region-flag">🌏</span><h4 data-i18n="r3_title">Asia</h4><p data-i18n="r3_text">Philippines (Meralco) and expanding into Southeast Asian markets</p></div>
+    <div class="region-card fade-in"><span class="region-flag">🌍</span><h4 data-i18n="r4_title">Africa</h4><p data-i18n="r4_text">Egypt, and substation services across Sub-Saharan Africa</p></div>
   </div>
-</section>
+  </section>
 
 <!-- GOALS -->
 <section id="goals">
