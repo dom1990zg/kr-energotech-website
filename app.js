@@ -14,7 +14,7 @@ window.setLang=function setLang(l){
   document.documentElement.dir=rtl?'rtl':'ltr';
   document.body.dir=rtl?'rtl':'ltr';
   document.getElementById('heroTitle').innerHTML=heroTitles[l];
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
     const k=el.getAttribute('data-i18n');
     if(t[k]!==undefined){
       if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=t[k];
@@ -23,28 +23,27 @@ window.setLang=function setLang(l){
       else el.innerHTML=t[k];
     }
   });
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.textContent===l.toUpperCase());});
 }
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
 window.toggleMenu=function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry,i){if(entry.isIntersecting)setTimeout(function(){entry.target.classList.add('visible');},i*80);});
 },{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el);});
 var FURL='https'+'://formspree'+'.io/f/mzdjweov';
-window.handleSubmit=async function handleSubmit(e){
-  e.preventDefault();
-  const form=e.target;
-  const btn=document.getElementById('submitBtn');
-  const t=T[lang];
-  const succ=document.getElementById('formSuccess');
-  const err=document.getElementById('formError');
+window.handleSubmit=function handleSubmit(ev){
+  ev.preventDefault();
+  var form=ev.target;
+  var btn=document.getElementById('submitBtn');
+  var t=T[lang];
+  var succ=document.getElementById('formSuccess');
+  var err=document.getElementById('formError');
   succ.style.display='none';
   err.style.display='none';
   btn.textContent='...';
   btn.disabled=true;
-  try{
-    const res=await fetch(FURL,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+  fetch(FURL,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(function(res){
     if(res.ok){
       form.style.display='none';
       succ.textContent=t.form_success;
@@ -58,13 +57,13 @@ window.handleSubmit=async function handleSubmit(e){
       err.className='form-status error';
       err.style.display='block';
     }
-  } catch(ex){
+  }).catch(function(){
     btn.disabled=false;
     btn.textContent=t.form_submit;
     err.textContent=t.form_error;
     err.className='form-status error';
     err.style.display='block';
-  }
+  });
 }
 (function(){
   var e='info'+'@'+'kr-exp.com';
